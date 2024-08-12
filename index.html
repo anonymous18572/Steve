@@ -26,55 +26,12 @@
             font-weight: bold;
             color: white;
         }
-
-        /* Particle Style */
-        .particle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: red; /* Particle color */
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.8;
-            animation: particle-fall 1.5s linear infinite;
-        }
-
-        @keyframes particle-fall {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
 
     <img src="https://skins.mcstats.com/body/front/cda39dac-0682-46f5-b409-c57dc244cb85" alt="Centered Image">
-    <p>This is steve.</p>
-
-    <script>
-        // Particle effect from the cursor
-        document.addEventListener('mousemove', function(e) {
-            createParticle(e.clientX, e.clientY);
-        });
-
-        function createParticle(x, y) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = `${x}px`;
-            particle.style.top = `${y}px`;
-
-            document.body.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 1500); // Remove particle after animation
-        }
-    </script>
+    <p>Hi im Steve.</p>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shining Text with Particles</title>
+    <title>Text with vile.sh Particles</title>
     <style>
         body {
             background-color: black;
@@ -15,7 +15,7 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            cursor: url('https://cdn.custom-cursor.com/db/p/6419/purple-fairy-rose-cursor-pack.png'), auto;
+            cursor: none; /* Hide the default cursor */
         }
         img {
             max-width: 100%;
@@ -25,47 +25,23 @@
             margin-top: 20px;
             font-size: 24px;
             font-weight: bold;
-            color: #ffd700; /* Gold color */
-            position: relative;
+            color: white; /* White text color */
         }
 
-        /* Particle Effect on Text */
-        p::before, p::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: radial-gradient(circle, rgba(255,215,0,0.5) 20%, transparent 70%);
-            background-size: 150% 150%;
-            animation: sparkle 2s infinite;
-            pointer-events: none;
-        }
-        p::after {
-            animation-delay: 1s;
-        }
-
-        @keyframes sparkle {
-            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.7; }
-            50% { transform: translate(50%, 50%) scale(1.2); opacity: 1; }
-            100% { transform: translate(150%, -150%) scale(0.5); opacity: 0.7; }
-        }
-
-        /* Snowfall Effect */
+        /* vile.sh Particle */
         .particle {
             position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #ffd700;
-            border-radius: 50%;
+            font-size: 14px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ff0000; /* Red color */
             pointer-events: none;
             opacity: 0.8;
-            animation: fall 4s linear infinite;
+            animation: fall 2s linear infinite;
+            white-space: nowrap;
         }
 
         @keyframes fall {
-            0% { transform: translateY(0); opacity: 0.8; }
+            0% { transform: translateY(0); opacity: 1; }
             100% { transform: translateY(100vh); opacity: 0; }
         }
     </style>
@@ -73,10 +49,10 @@
 <body>
 
     <img src="https://skins.mcstats.com/body/front/cda39dac-0682-46f5-b409-c57dc244cb85" alt="Centered Image">
-    <p>Your Shining Text with Particles</p>
+    <p>Your Text Here</p>
 
     <script>
-        // Particle falling from the cursor
+        // Particle falling from the cursor with "vile.sh" text
         document.addEventListener('mousemove', function(e) {
             createParticle(e.clientX, e.clientY);
         });
@@ -86,12 +62,13 @@
             particle.className = 'particle';
             particle.style.left = `${x}px`;
             particle.style.top = `${y}px`;
+            particle.innerText = 'vile.sh';
 
             document.body.appendChild(particle);
 
             setTimeout(() => {
                 particle.remove();
-            }, 4000); // Remove particle after animation
+            }, 2000); // Remove particle after animation
         }
     </script>
 

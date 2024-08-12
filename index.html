@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text with vile.sh Particles</title>
+    <title>Sbeve</title>
     <style>
         body {
             background-color: black;
@@ -15,7 +15,6 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            cursor: none; /* Hide the default cursor */
         }
         img {
             max-width: 100%;
@@ -25,34 +24,40 @@
             margin-top: 20px;
             font-size: 24px;
             font-weight: bold;
-            color: white; /* White text color */
+            color: white;
         }
 
-        /* vile.sh Particle */
+        /* Particle Style */
         .particle {
             position: absolute;
-            font-size: 14px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #ff0000; /* Red color */
+            width: 6px;
+            height: 6px;
+            background: red; /* Particle color */
+            border-radius: 50%;
             pointer-events: none;
             opacity: 0.8;
-            animation: fall 2s linear infinite;
-            white-space: nowrap;
+            animation: particle-fall 1.5s linear infinite;
         }
 
-        @keyframes fall {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
+        @keyframes particle-fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
 
     <img src="https://skins.mcstats.com/body/front/cda39dac-0682-46f5-b409-c57dc244cb85" alt="Centered Image">
-    <p>Your Text Here</p>
+    <p>This is steve.</p>
 
     <script>
-        // Particle falling from the cursor with "vile.sh" text
+        // Particle effect from the cursor
         document.addEventListener('mousemove', function(e) {
             createParticle(e.clientX, e.clientY);
         });
@@ -62,13 +67,12 @@
             particle.className = 'particle';
             particle.style.left = `${x}px`;
             particle.style.top = `${y}px`;
-            particle.innerText = 'vile.sh';
 
             document.body.appendChild(particle);
 
             setTimeout(() => {
                 particle.remove();
-            }, 2000); // Remove particle after animation
+            }, 1500); // Remove particle after animation
         }
     </script>
 
